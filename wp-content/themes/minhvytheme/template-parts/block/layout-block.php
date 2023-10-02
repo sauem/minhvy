@@ -1,6 +1,7 @@
 <?php
 if (isset($args['term'])):
     $term = $args['term'];
+    $ignore = [];
     ?>
     <div class="h1-blog-section section section-padding pt-0">
         <div class="container">
@@ -15,6 +16,8 @@ if (isset($args['term'])):
                         <div class="col-md-5">
                             <?php query_posts([
                                 'posts_per_page' => 1,
+                                'order' => 'DESC',
+                                'orderby' => 'date',
                                 'tax_query' => [
                                     [
                                         'taxonomy' => $term->taxonomy,
@@ -24,12 +27,14 @@ if (isset($args['term'])):
                                 ]
                             ]);
                             while (have_posts()): the_post();
+                                $ignore[] = get_the_ID();
                                 ?>
                                 <div class="col">
                                     <?php get_template_part('template-parts/block/item'); ?>
                                 </div>
                             <?php
                             endwhile;
+                            wp_reset_query();
                             ?>
                         </div>
                         <div class="col-md-7">
@@ -37,13 +42,15 @@ if (isset($args['term'])):
                                 <?php query_posts([
                                     'posts_per_page' => 4,
                                     'orderby' => 'date',
-                                    'order' => 'DESC'
+                                    'order' => 'DESC',
+                                    'post__not_in' => $ignore
                                 ]);
                                 while (have_posts()): the_post();
                                     echo "<div class='col mb-3'>";
                                     get_template_part('template-parts/block/item-horizontal');
                                     echo "</div>";
                                 endwhile;
+                                wp_reset_query();
                                 ?>
                             </div>
                         </div>

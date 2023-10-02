@@ -10,6 +10,5 @@
             <a href="<?php echo get_the_permalink() ?>"><?php echo get_the_title() ?></a>
         </h4>
         <p><?php echo get_the_date() ?></p>
-        <p><?php echo get_the_excerpt() ?></p>
     </div>
 </div>
