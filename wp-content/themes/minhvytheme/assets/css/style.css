@@ -2705,6 +2705,7 @@ hr {
     text-transform: uppercase;
 }
 
+
 .section-title .sub-title:after {
     position: absolute;
     content: '';
@@ -2730,6 +2731,15 @@ hr {
     bottom: -10px;
     margin: auto;
     background: lightblue;
+}
+
+.section-title .sub-title.line-left:before {
+    left: 0;
+    right: unset;
+}
+.section-title .sub-title.line-left:after {
+    left: 0;
+    right: unset;
 }
 
 .section-title .sub-title:last-child {

@@ -65,8 +65,8 @@ get_header(); ?>
 
             <div class="col mb-8">
                 <div class="section-title">
-                    <h2 class="sub-title"><span class="text-primary">KOFI</span> ABOUT INFO</h2>
-                    <p class="text">A coffee shop is a small business that sells coffee, pastries, and other morning
+                    <h2 class="sub-title line-left">About us</h2>
+                    <p class="text mt-3">A coffee shop is a small business that sells coffee, pastries, and other morning
                         goods. There are many different types of coffee shops around the world. Some have a barista,
                         while some just have a cashier.</p>
                 </div>
