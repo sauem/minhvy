@@ -56,7 +56,7 @@ if (isset($args['term'])):
                         </div>
                     </div>
                     <div class="text-center mt-4">
-                        <button class="btn btn-primary btn-sm">Xem thêm</button>
+                        <a href="<?php echo get_term_link($term)?>" class="btn btn-primary btn-sm">Xem thêm</a>
                     </div>
                 </div>
             </div>

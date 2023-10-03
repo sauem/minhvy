@@ -9,7 +9,7 @@ define('ASSET', get_template_directory_uri() . '/assets');
  */
 show_admin_bar(false);
 add_theme_support('custom-logo');
-add_theme_support( 'post-thumbnails' );
+add_theme_support('post-thumbnails');
 
 function get_logo()
 {
@@ -20,6 +20,12 @@ function get_logo()
     } else {
         echo '<h1>' . get_bloginfo('name') . '</h1>';
     }
+}
+
+function setting($key = '')
+{
+    $homeId = get_option('page_on_front');
+    return get_field($key, $homeId);
 }
 
 function custom_theme_setup()

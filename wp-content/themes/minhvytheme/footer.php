@@ -21,9 +21,8 @@
                 <!-- Footer Widget Start -->
                 <div class="col-lg-4 col-sm-6 col-12 mb-8">
                     <div class="footer-widget footer-widget-dark">
-                        <h5 class="footer-widget-title">Minhvyme.com</h5>
-                        <p>This is the perfect place to find a nice and cozy spot to sip some. You'll find the Java
-                            Jungle.</p>
+                        <h5 class="footer-widget-title"><?php bloginfo(); ?></h5>
+                        <p><?php bloginfo('description')?></p>
                         <ul class="footer-widget-list-icon">
                             <li><i class="sli-location-pin"></i>Addresss: 123 Pall Mall, London England</li>
                             <li><i class="sli-envelope"></i>Email: hello@example.com</li>
