@@ -11,6 +11,10 @@
 
 get_header();
 $term_id = yoast_get_primary_term_id('category', get_the_ID());
+if (!$term_id) {
+    $terms = get_the_category();
+    $term_id = $terms[0]->term_id;
+}
 $term = get_term($term_id);
 ?>
     <div class="page-banner-section section"
@@ -76,8 +80,10 @@ $term = get_term($term_id);
                         $next_post = get_next_post();
                         $prev_post = get_previous_post();
                         ?>
-                        <li><a href="<?php echo get_permalink($prev_post)?>"><i class="sli-arrow-left"></i>Bài trước</a></li>
-                        <li><a href="<?php echo get_permalink($next_post)?>"><i class="sli-arrow-right"></i>Bài sau</a></li>
+                        <li><a href="<?php echo get_permalink($prev_post) ?>"><i class="sli-arrow-left"></i>Bài
+                                trước</a></li>
+                        <li><a href="<?php echo get_permalink($next_post) ?>"><i class="sli-arrow-right"></i>Bài sau</a>
+                        </li>
                     </ul>
                     <div class="single-blog-comment">
                         <?php
