@@ -73,7 +73,7 @@ if (!empty($categories)) {
             <h2 class="sub-title">Đối tác</h2>
         </div>
 
-        <div class="blog-carousel swiper">
+        <div class="logo-carousel swiper">
 
             <div class="swiper-wrapper">
                 <?php query_posts([
