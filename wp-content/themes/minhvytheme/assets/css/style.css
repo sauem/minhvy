@@ -2739,6 +2739,7 @@ hr {
     left: 0;
     right: unset;
 }
+
 .section-title .sub-title.line-left:after {
     left: 0;
     right: unset;
@@ -4864,6 +4865,9 @@ hr {
     max-height: 245px;
     -webkit-transition: all 0.4s ease 0s;
     transition: all 0.4s ease 0s;
+    object-fit: cover;
+    display: flex;
+    min-height: 220px;
 }
 
 .blog-content {
