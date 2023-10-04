@@ -10,7 +10,7 @@
  * @subpackage Twenty_Twenty_One
  * @since Twenty Twenty-One 1.0
  */
-
+$footers = wp_get_menu_array('footer-menu');
 ?>
 <div class="footer-section section">
     <!-- Footer Top Section Start -->
@@ -22,56 +22,67 @@
                 <div class="col-lg-4 col-sm-6 col-12 mb-8">
                     <div class="footer-widget footer-widget-dark">
                         <h5 class="footer-widget-title"><?php bloginfo(); ?></h5>
-                        <p><?php bloginfo('description')?></p>
+                        <p><?php bloginfo('description') ?></p>
                         <ul class="footer-widget-list-icon">
-                            <li><i class="sli-location-pin"></i>Addresss: 123 Pall Mall, London England</li>
-                            <li><i class="sli-envelope"></i>Email: hello@example.com</li>
-                            <li><i class="sli-phone"></i>Phone: (012) 345 6789</li>
+                            <li><i class="sli-location-pin"></i>Addresss: <?php echo setting('info_address') ?></li>
+                            <li>
+                                <a href="mailto:<?php echo setting('info_email') ?>">
+                                    <i class="sli-envelope"></i>Email: <?php echo setting('info_email') ?>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="tel:<?php echo setting('info_hotline') ?>">
+                                    <i class="sli-phone"></i>Phone: <?php echo setting('info_hotline') ?>
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </div>
                 <!-- Footer Widget End -->
 
-                <!-- Footer Widget Start -->
-                <div class="col-lg-3 col-sm-6 col-12 mb-8">
-                    <div class="footer-widget footer-widget-dark">
-                        <h5 class="footer-widget-title">Dịch vụ</h5>
-                        <ul class="footer-widget-list">
-                            <li><a href="#">Returns Policy</a></li>
-                            <li><a href="#">Support Policy</a></li>
-                            <li><a href="#">Size Guide</a></li>
-                            <li><a href="#">FAQs</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
-                        </ul>
-                    </div>
-                </div>
                 <!-- Footer Widget End -->
-
-                <!-- Footer Widget Start -->
-                <div class="col-lg-3 col-sm-6 col-12 mb-8">
-                    <div class="footer-widget footer-widget-dark">
-                        <h5 class="footer-widget-title">Tin tức</h5>
-                        <ul class="footer-widget-list">
-                            <li><a href="about-us.html">About us</a></li>
-                            <li><a href="wishlist.html">Wishlist</a></li>
-                            <li><a href="my-account.html">My Account</a></li>
-                            <li><a href="login.html">Login</a></li>
-                            <li><a href="register.html">Register</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <!-- Footer Widget End -->
+                <?php if (!empty($footers)):
+                    foreach ($footers as $menu):
+                        ?>
+                        <div class="col-lg-3 col-sm-6 col-12 mb-8">
+                            <div class="footer-widget footer-widget-dark">
+                                <h5 class="footer-widget-title"><?php echo $menu['title'] ?></h5>
+                                <ul class="footer-widget-list">
+                                    <?php foreach (@$menu['children'] as $item): ?>
+                                        <li>
+                                            <a href="<?php echo $item['url'] ?>">
+                                                <?php echo $item['title'] ?>
+                                            </a>
+                                        </li>
+                                    <?php endforeach; ?>
+                                </ul>
+                            </div>
+                        </div>
+                    <?php endforeach; endif; ?>
 
                 <!-- Footer Widget Start -->
                 <div class="col-lg-2 col-sm-6 col-12 mb-8">
                     <div class="footer-widget footer-widget-dark">
                         <h5 class="footer-widget-title">Liên hệ</h5>
                         <ul class="footer-widget-list-icon">
-                            <li><a href="#"><i class="sli-social-facebook"></i>Facebook</a></li>
-                            <li><a href="#"><i class="sli-social-twitter"></i>Twitter</a></li>
-                            <li><a href="#"><i class="sli-social-instagram"></i>Instagram</a></li>
-                            <li><a href="#"><i class="sli-social-youtube"></i>Youtube</a></li>
-                            <li><a href="#"><i class="sli-social-pinterest"></i>Pinterest</a></li>
+                            <?php
+                            $socials = setting('social');
+                            if (!empty($socials)):
+                                foreach ($socials as $key => $social):
+                                    if (!$social['active']) {
+                                        continue;
+                                    }
+                                    ?>
+                                    <li>
+                                        <a href="<?php echo $social['link'] ?>">
+                                            <i class="sli-social-<?php echo $key ?>"></i>
+                                            <?php echo ucfirst($key) ?>
+                                        </a>
+                                    </li>
+                                <?php
+                                endforeach;
+                            endif;
+                            ?>
                         </ul>
                     </div>
                 </div>

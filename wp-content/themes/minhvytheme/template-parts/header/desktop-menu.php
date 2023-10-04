@@ -3,13 +3,13 @@
         <div class="d-flex align-items-center">
             <ul class="list">
                 <li>
-                    <a class="d-flex align-items-center" href="mailto:">
-                        <i class="sli-envelope me-1"></i> email@gamil.com
+                    <a class="d-flex align-items-center" href="mailto:<?php echo setting('info_email') ?>">
+                        <i class="sli-envelope me-1"></i> <?php echo setting('info_email') ?>
                     </a>
                 </li>
                 <li>
-                    <a class="d-flex align-items-center" href="tel:">
-                        <i class="sli-phone me-1"></i> 038.456.9390
+                    <a class="d-flex align-items-center" href="tel:<?php echo setting('info_hotline') ?>">
+                        <i class="sli-phone me-1"></i> <?php echo setting('info_hotline') ?>
                     </a>
                 </li>
             </ul>
