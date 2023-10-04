@@ -29,4 +29,11 @@ ul.list {
     ul.list li:first-child {
       margin-left: 0; }
 
+.logo-carousel .logo-item {
+  display: flex;
+  align-items: center; }
+  .logo-carousel .logo-item img {
+    display: flex;
+    object-fit: contain; }
+
 /*# sourceMappingURL=custom.css.map */

@@ -83,7 +83,7 @@ if (!empty($categories)) {
                 while (have_posts()): the_post();
                     ?>
                     <div class="swiper-slide">
-                        <a href="<?php get_post_meta(get_the_ID(), 'href', true) ?>">
+                        <a class="logo-item" href="<?php get_post_meta(get_the_ID(), 'href', true) ?>">
                             <img src="<?php echo get_the_post_thumbnail_url() ?>" alt=""/>
                         </a>
                     </div>

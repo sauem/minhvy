@@ -13,7 +13,8 @@ ul.list {
 
   li {
     position: relative;
-    &:not(:last-child){
+
+    &:not(:last-child) {
       margin: 0 8px;
 
       &:before {
@@ -29,12 +30,25 @@ ul.list {
         color: white;
       }
     }
-    &:last-child{
+
+    &:last-child {
       margin-left: 8px;
     }
-    &:first-child{
+
+    &:first-child {
       margin-left: 0;
     }
 
+  }
+}
+
+.logo-carousel {
+  .logo-item {
+    display: flex;
+    align-items: center;
+    img{
+      display: flex;
+      object-fit: contain;
+    }
   }
 }
