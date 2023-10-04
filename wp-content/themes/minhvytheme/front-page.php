@@ -19,7 +19,10 @@ get_header(); ?>
                                     <div class="feature-icon">
                                         <img loading="lazy"
                                              src="<?php echo $core['image'] ?>"
-                                             alt="Coffee World sorts" width="80" height="80"></div>
+                                             alt="<?php echo $core['title'] ?>"
+                                             style="max-width: 80px"
+                                             width="80" height="80">
+                                    </div>
                                     <div class="feature-content">
                                         <h3 class="feature-title"><?php echo $core['title'] ?></h3>
                                         <p class="feature-text"><?php echo $core['description'] ?></p>
