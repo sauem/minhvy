@@ -67,6 +67,38 @@ if (!empty($categories)) {
 }
 ?>
 
+<div class="h1-blog-section section section-padding pt-0">
+    <div class="container">
+        <div class="section-title section-title-center">
+            <h2 class="sub-title">Đối tác</h2>
+        </div>
+
+        <div class="blog-carousel swiper">
+
+            <div class="swiper-wrapper">
+                <?php query_posts([
+                    'posts_per_page' => 8,
+                    'post_type' => 'logo',
+                ]);
+                while (have_posts()): the_post();
+                    ?>
+                    <div class="swiper-slide">
+                        <a href="<?php get_post_meta(get_the_ID(), 'href', true) ?>">
+                            <img src="<?php echo get_the_post_thumbnail_url() ?>" alt=""/>
+                        </a>
+                    </div>
+                <?php
+                endwhile;
+                ?>
+            </div>
+
+            <div class="swiper-pagination d-md-none"></div>
+            <div class="swiper-button-prev d-none d-md-flex"></div>
+            <div class="swiper-button-next d-none d-md-flex"></div>
+        </div>
+
+    </div>
+</div>
 
 <?php
 get_footer();

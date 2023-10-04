@@ -43,7 +43,14 @@ if (isset($args['term'])):
                                     'posts_per_page' => 4,
                                     'orderby' => 'date',
                                     'order' => 'DESC',
-                                    'post__not_in' => $ignore
+                                    'post__not_in' => $ignore,
+                                    'tax_query' => [
+                                        [
+                                            'taxonomy' => $term->taxonomy,
+                                            'field' => 'term_id',
+                                            'terms' => $term->term_id
+                                        ]
+                                    ]
                                 ]);
                                 while (have_posts()): the_post();
                                     echo "<div class='col mb-3'>";

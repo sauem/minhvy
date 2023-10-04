@@ -37,7 +37,7 @@
     </div>
 </div>
 <div class="header sticky-header section">
-    <div class="container-fluid">
+    <div class="container">
         <div class="row align-items-center">
 
             <!-- Logo Start -->

@@ -8,9 +8,7 @@
     <meta name="description" content="Kofi - Coffee Shop Website Template">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="<?php echo ASSET ?>/images/favicon.png">
-
+    <?php wp_site_icon() ?>
     <!-- CSS (Font, Vendor, Icon, Plugins & Style CSS files) -->
 
     <!-- Fonts CSS -->
