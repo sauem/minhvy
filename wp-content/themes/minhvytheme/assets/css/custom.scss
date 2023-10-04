@@ -46,7 +46,10 @@ ul.list {
   .logo-item {
     display: flex;
     align-items: center;
-    img{
+    justify-content: center;
+    height: 100%;
+
+    img {
       display: flex;
       object-fit: contain;
     }

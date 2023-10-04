@@ -31,7 +31,9 @@ ul.list {
 
 .logo-carousel .logo-item {
   display: flex;
-  align-items: center; }
+  align-items: center;
+  justify-content: center;
+  height: 100%; }
   .logo-carousel .logo-item img {
     display: flex;
     object-fit: contain; }
