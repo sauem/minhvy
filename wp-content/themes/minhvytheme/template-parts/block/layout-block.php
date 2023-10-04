@@ -40,7 +40,7 @@ if (isset($args['term'])):
                         <div class="col-md-7">
                             <div class="row row-cols-md-2 row-cols-sm-1">
                                 <?php query_posts([
-                                    'posts_per_page' => 4,
+                                    'posts_per_page' => 10,
                                     'orderby' => 'date',
                                     'order' => 'DESC',
                                     'post__not_in' => $ignore,

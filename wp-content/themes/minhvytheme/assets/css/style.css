@@ -4835,6 +4835,7 @@ hr {
 .blog {
     position: relative;
     overflow: hidden;
+    height: 100%;
     padding: 10px;
     -webkit-transition: all 0.4s ease 0s;
     transition: all 0.4s ease 0s;
@@ -4860,6 +4861,7 @@ hr {
 
 .blog-thumb img {
     width: 100%;
+    max-height: 245px;
     -webkit-transition: all 0.4s ease 0s;
     transition: all 0.4s ease 0s;
 }
