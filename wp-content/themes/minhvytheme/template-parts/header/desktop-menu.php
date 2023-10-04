@@ -42,7 +42,7 @@
 
             <!-- Logo Start -->
             <div class="col-lg-2 col">
-                <div class="header-logo">
+                <div class="header-logo py-3">
                     <a href="/">
                         <?php get_logo() ?>
                     </a>
