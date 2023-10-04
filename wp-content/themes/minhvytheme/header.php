@@ -42,8 +42,8 @@
         <button type="button" class="btn-close offcanvas-search-close-btn text-white" data-bs-dismiss="offcanvas"
                 aria-label="Close"></button>
         <div class="offcanvas-search-form">
-            <form action="#">
-                <input type="search" name="q" placeholder="Search our store">
+            <form action="/">
+                <input type="search" name="s" placeholder="<?php pll_e('search') ?>...">
                 <button type="submit"><i class="sli-magnifier"></i></button>
             </form>
         </div>

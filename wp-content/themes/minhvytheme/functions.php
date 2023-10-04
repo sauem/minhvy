@@ -3,7 +3,26 @@
  * define variables
  */
 define('ASSET', get_template_directory_uri() . '/assets');
+/**
+ * Translations static string
+ */
 
+
+add_action('init', function () {
+    pll_register_string('address', 'Địa chỉ');
+    pll_register_string('phone', 'Điện thoại');
+    pll_register_string('search', 'Tìm kiếm');
+    pll_register_string('news', 'Bài viết mới');
+    pll_register_string('read_more', 'Xem thêm');
+    pll_register_string('next_post', 'Bài sau');
+    pll_register_string('prev_post', 'Bài trước');
+    pll_register_string('different', 'Khác');
+    pll_register_string('category', 'Danh mục');
+    pll_register_string('share', 'Chia sẻ');
+    pll_register_string('search_results', 'Có %s kết quả phù hợp');
+    pll_register_string('name_home', 'Trang chủ');
+    pll_register_string('contact', 'Liên hệ');
+});
 /**
  * config php
  */
@@ -49,7 +68,9 @@ function get_nav_menu_items_by_location($location, $args = [])
 
     // Get object id by location
     $object = wp_get_nav_menu_object($locations[$location]);
-
+    if (!$object) {
+        return [];
+    }
     // Get menu items by menu name
     $menu_items = wp_get_nav_menu_items($object->name, $args);
 
@@ -95,3 +116,4 @@ function wp_get_menu_array($current_menu = 'Main Menu')
     return $menu;
 
 }
+

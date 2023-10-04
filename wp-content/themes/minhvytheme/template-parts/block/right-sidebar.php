@@ -1,5 +1,5 @@
 <div class="blog-sidebar-item">
-    <h4 class="blog-sidebar-title">Danh mục</h4>
+    <h4 class="blog-sidebar-title"><?php pll_e('category') ?></h4>
     <div class="blog-sidebar-body">
         <ul class="blog-sidebar-archive">
             <?php
@@ -22,18 +22,18 @@
     </div>
 </div>
 <div class="blog-sidebar-item">
-    <h4 class="blog-sidebar-title">Tìm kiếm</h4>
+    <h4 class="blog-sidebar-title"><?php pll_e('search') ?></h4>
     <div class="blog-sidebar-body">
         <div class="blog-sidebar-search">
-            <form action="#">
-                <input class="form-field" type="text" placeholder="Tìm kiếm....">
+            <form action="/">
+                <input name="s" class="form-field" type="text" placeholder="<?php pll_e('search') ?>....">
                 <button class="btn"><i class="sli-magnifier"></i></button>
             </form>
         </div>
     </div>
 </div>
 <div class="blog-sidebar-item">
-    <h4 class="blog-sidebar-title">Bài viết mới</h4>
+    <h4 class="blog-sidebar-title"><?php pll_e('news') ?></h4>
     <div class="blog-sidebar-body">
         <?php query_posts([
             'posts_per_page' => 4,

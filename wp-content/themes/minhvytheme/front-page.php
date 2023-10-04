@@ -11,7 +11,7 @@ get_header(); ?>
                 <div class="row row-cols-lg-2 row-cols-sm-2 row-cols-1 mb-n6">
                     <?php
                     $cores = setting('core_value');
-                    if (!empty($cores)) {
+                    if (!empty($cores) && is_array($cores)) {
                         foreach ($cores as $core) {
                             ?>
                             <div class="col mb-4">

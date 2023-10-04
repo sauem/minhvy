@@ -63,7 +63,7 @@ $footers = wp_get_menu_array('footer-menu');
                 <!-- Footer Widget Start -->
                 <div class="col-lg-2 col-sm-6 col-12 mb-8">
                     <div class="footer-widget footer-widget-dark">
-                        <h5 class="footer-widget-title">Liên hệ</h5>
+                        <h5 class="footer-widget-title"><?php pll_e('contact')?></h5>
                         <ul class="footer-widget-list-icon">
                             <?php
                             $socials = setting('social');

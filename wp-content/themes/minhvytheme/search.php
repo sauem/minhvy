@@ -9,57 +9,69 @@
  * @since Twenty Twenty-One 1.0
  */
 
-get_header();
+get_header(); ?>
 
-if ( have_posts() ) {
-	?>
-	<header class="page-header alignwide">
-		<h1 class="page-title">
-			<?php
-			printf(
-				/* translators: %s: Search term. */
-				esc_html__( 'Results for "%s"', 'twentytwentyone' ),
-				'<span class="page-description search-term">' . esc_html( get_search_query() ) . '</span>'
-			);
-			?>
-		</h1>
-	</header><!-- .page-header -->
+    <div class="page-banner-section section" style="background-image: none">
+        <div class="container">
+            <?php yoast_breadcrumb() ?>
+        </div>
+    </div>
+    <div class="shop-product-section section pb-5">
+        <div class="container">
+            <div class="row flex-lg-row-reverse gy-4">
 
-	<div class="search-result-count default-max-width">
-		<?php
-		printf(
-			esc_html(
-				/* translators: %d: The number of search results. */
-				_n(
-					'We found %d result for your search.',
-					'We found %d results for your search.',
-					(int) $wp_query->found_posts,
-					'twentytwentyone'
-				)
-			),
-			(int) $wp_query->found_posts
-		);
-		?>
-	</div><!-- .search-result-count -->
-	<?php
-	// Start the Loop.
-	while ( have_posts() ) {
-		the_post();
+                <div class="col-lg-9 col-12 mb-8">
+                    <?php
+                    $current_page = get_query_var('page') ? get_query_var('page') : 1;
+                    $query = new WP_Query(array_merge([
+                        'posts_per_page' => 12,
+                        'paged' => $current_page,
+                        'post_type' => 'post',
+                        'post_status' => 'publish',
+                        'orderby' => 'date',
+                        'order' => 'DESC',
+                        's' => $_GET['s'],
+                    ]));
+                    if ($query->have_posts()):
+                        ?>
+                        <p>có <?php echo $query->post_count ?> kết quả phù hợp</p>
+                        <div class="row row-cols-md-3 row-cols-1 g-4">
+                            <?php
+                            while (have_posts()): the_post();
+                                ?>
+                                <div class="col">
+                                    <?php get_template_part('template-parts/block/item'); ?>
+                                </div>
+                            <?php
+                            endwhile;
+                            ?>
+                        </div>
+                    <?php else: ?>
+                        <p>Không có kết quả tìm kiếm phù hợp</p>
+                    <?php endif;
+                    wp_reset_query();
+                    ?>
+                    <div class="pagination justify-content-center mt-4">
+                        <?php
+                        echo paginate_links(array(
+                            'type' => 'list',
+                            'base' => add_query_arg('page', '%#%'),
+                            'total' => $query->max_num_pages,
+                            'format' => '?page=%#%',
+                            'current' => max(1, $current_page),
+                            'prev_text' => '<i class="sli-arrow-left"></i>',
+                            'next_text' => '<i class="sli-arrow-right"></i>',
+                        ));
+                        ?>
+                    </div>
+                </div>
 
-		/*
-		 * Include the Post-Format-specific template for the content.
-		 * If you want to override this in a child theme, then include a file
-		 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-		 */
-		get_template_part( 'template-parts/content/content-excerpt', get_post_format() );
-	} // End the loop.
+                <div class="col-lg-3 col-12 mb-8">
+                    <?php get_template_part('template-parts/block/right-sidebar') ?>
+                </div>
 
-	// Previous/next page navigation.
-	twenty_twenty_one_the_posts_navigation();
-
-	// If no content, include the "No posts found" template.
-} else {
-	get_template_part( 'template-parts/content/content-none' );
-}
-
+            </div>
+        </div>
+    </div>
+<?php
 get_footer();

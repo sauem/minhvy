@@ -21,7 +21,7 @@ $term = get_term($term_id);
          style="background-image: url('<?php echo get_the_post_thumbnail_url() ?>')">
         <div class="container">
             <ul class="breadcrumb">
-                <li><a href="/">Home</a></li>
+                <li><a href="/"><?php pll_e('home_name'); ?></a></li>
                 <li><?php echo $term->name ?></li>
             </ul>
         </div>
@@ -43,7 +43,7 @@ $term = get_term($term_id);
                             <div class="row justify-content-between">
                                 <div class="col-auto">
                                     <div class="single-blog-tags">
-                                        <span>Danh mục:</span>
+                                        <span><?php pll_e('category') ?>:</span>
                                         <ul>
                                             <?php
                                             $categories = get_the_category();
@@ -64,7 +64,7 @@ $term = get_term($term_id);
                                 </div>
                                 <div class="col-auto">
                                     <div class="single-blog-share">
-                                        <span>Share:</span>
+                                        <span><?php pll_e('share') ?>:</span>
                                         <ul>
                                             <li><a href="#"><i class="sli-social-facebook"></i></a></li>
                                             <li><a href="#"><i class="sli-social-twitter"></i></a></li>
@@ -80,16 +80,19 @@ $term = get_term($term_id);
                         $next_post = get_next_post();
                         $prev_post = get_previous_post();
                         ?>
-                        <li><a href="<?php echo get_permalink($prev_post) ?>"><i class="sli-arrow-left"></i>Bài
-                                trước</a></li>
-                        <li><a href="<?php echo get_permalink($next_post) ?>"><i class="sli-arrow-right"></i>Bài sau</a>
+                        <li><a href="<?php echo get_permalink($prev_post) ?>"><i class="sli-arrow-left"></i>
+                                <?php pll_e('prev_post') ?>
+                            </a></li>
+                        <li><a href="<?php echo get_permalink($next_post) ?>"><i class="sli-arrow-right"></i>
+                                <?php pll_e('next_post') ?>
+                            </a>
                         </li>
                     </ul>
                     <div class="single-blog-comment">
                         <?php
                         get_template_part('template-parts/block/layout', 'slider', [
                             'term' => $term,
-                            'title' => $term->name . ' khác'
+                            'title' => $term->name . pll__('different')
                         ]);
                         ?>
                     </div>
