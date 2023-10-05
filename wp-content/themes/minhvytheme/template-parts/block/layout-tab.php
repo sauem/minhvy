@@ -19,7 +19,7 @@ if (isset($args['term'])):
             </div>
             <div class="row">
                 <ul class="nav nav-pills justify-content-center mb-3" id="pills-tab" role="tablist">
-                    <li class="nav-item mx-1" role="presentation">
+                    <li class="nav-item" role="presentation">
                         <button class="nav-link active"
                                 id="pills-all-tab"
                                 data-bs-toggle="pill"
@@ -32,7 +32,7 @@ if (isset($args['term'])):
                     if (!empty($categories)):
                         foreach ($categories as $key => $category):
                             ?>
-                            <li class="nav-item mx-1" role="presentation">
+                            <li class="nav-item" role="presentation">
                                 <button class="nav-link"
                                         id="pills-<?php echo $category->slug ?>-tab"
                                         data-bs-toggle="pill"

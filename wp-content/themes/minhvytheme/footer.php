@@ -99,7 +99,7 @@ $footers = wp_get_menu_array('footer-menu');
             <div class="row justify-content-between align-items-center mb-n2">
 
                 <p class="footer-copyright footer-copyright-dark text-center">Copyright <b
-                            class="text-primary">Minhvyme</b> &copy;2023</p>
+                            class="text-white">Minhvyme</b> &copy;2023</p>
             </div>
         </div>
     </div>

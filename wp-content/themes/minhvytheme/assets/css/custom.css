@@ -1,5 +1,36 @@
+.text-second {
+  color: #F25729FF; }
+
+.footer-top {
+  background-color: #222; }
+
+.footer-bottom {
+  background-color: #877669FF; }
+
+.nav-pills .nav-item {
+  background-color: #877669FF; }
+  .nav-pills .nav-item .nav-link {
+    border-radius: 0;
+    color: white;
+    transition: 0.5s all; }
+    .nav-pills .nav-item .nav-link.active {
+      background-color: #F25729FF; }
+
+.header {
+  border-bottom: 2px solid #F25729FF; }
+
+.btn-primary {
+  background-color: #877669FF;
+  border-color: #877669FF; }
+  .btn-primary:hover {
+    background-color: #F25729FF;
+    border-color: #F25729FF; }
+
+.footer-section {
+  background-color: #877669FF; }
+
 .bg-top {
-  background-color: #177fc2;
+  background-color: #F25729FF;
   font-size: 13px;
   color: white;
   padding: 5px 0; }
