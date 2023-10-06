@@ -34,7 +34,12 @@ get_header(); ?>
                     ]));
                     if ($query->have_posts()):
                         ?>
-                        <p>có <?php echo $query->post_count ?> kết quả phù hợp</p>
+                        <p>
+                            <?php
+                            echo sprintf(pll__('Có %s kết quả phù hợp'), $query->post_count);
+                            ?>
+
+                        </p>
                         <div class="row row-cols-md-3 row-cols-1 g-4">
                             <?php
                             while (have_posts()): the_post();
@@ -47,7 +52,7 @@ get_header(); ?>
                             ?>
                         </div>
                     <?php else: ?>
-                        <p>Không có kết quả tìm kiếm phù hợp</p>
+                        <p><?php pll_e('Không có kết quả phù hợp')?></p>
                     <?php endif;
                     wp_reset_query();
                     ?>

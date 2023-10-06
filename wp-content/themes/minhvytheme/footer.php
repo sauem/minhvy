@@ -24,14 +24,14 @@ $footers = wp_get_menu_array('footer-menu');
                         <h5 class="footer-widget-title"><?php bloginfo(); ?></h5>
                         <p><?php bloginfo('description') ?></p>
                         <ul class="footer-widget-list-icon">
-                            <li><i class="sli-location-pin"></i>Addresss: <?php echo setting('info_address') ?></li>
+                            <li><i class="sli-location-pin"></i><?php __trans('Địa chỉ'); ?>: <?php echo setting('info_address') ?></li>
                             <li>
                                 <a href="mailto:<?php echo setting('info_email') ?>">
                                     <i class="sli-envelope"></i>Email: <?php echo setting('info_email') ?>
                                 </a>
                             </li>
                             <li class="d-flex">
-                                <i class="sli-phone"></i><?php pll_e('hotline'); ?>:
+                                <i class="sli-phone"></i><?php __trans('Điện thoại'); ?>:
                                 <?php
                                 $phones = setting('info_hotline');
                                 $phones = explode(',', $phones);
@@ -75,7 +75,7 @@ $footers = wp_get_menu_array('footer-menu');
                 <!-- Footer Widget Start -->
                 <div class="col-lg-2 col-sm-6 col-12 mb-8">
                     <div class="footer-widget footer-widget-dark">
-                        <h5 class="footer-widget-title"><?php pll_e('contact') ?></h5>
+                        <h5 class="footer-widget-title"><?php pll_e('Liên hệ') ?></h5>
                         <ul class="footer-widget-list-icon">
                             <?php
                             $socials = setting('social');

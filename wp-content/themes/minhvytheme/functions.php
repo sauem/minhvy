@@ -19,9 +19,11 @@ add_action('init', function () {
     pll_register_string('category', 'Danh mục');
     pll_register_string('share', 'Chia sẻ');
     pll_register_string('search_results', 'Có %s kết quả phù hợp');
+    pll_register_string('not_result', 'Không có kết quả phù hợp');
     pll_register_string('name_home', 'Trang chủ');
     pll_register_string('contact', 'Liên hệ');
     pll_register_string('partner', 'Đối tác');
+
 });
 /**
  * config php
@@ -29,6 +31,12 @@ add_action('init', function () {
 show_admin_bar(false);
 add_theme_support('custom-logo');
 add_theme_support('post-thumbnails');
+
+function __trans($key)
+{
+    $lang = pll_current_language();
+    echo pll_translate_string($key, $lang);
+}
 
 function get_logo()
 {
