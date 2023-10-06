@@ -11,6 +11,7 @@
  * @since Twenty Twenty-One 1.0
  */
 $footers = wp_get_menu_array('footer-menu');
+$info = setting('info');
 ?>
 <div class="footer-section section">
     <!-- Footer Top Section Start -->
@@ -24,17 +25,17 @@ $footers = wp_get_menu_array('footer-menu');
                         <h5 class="footer-widget-title"><?php bloginfo(); ?></h5>
                         <p><?php bloginfo('description') ?></p>
                         <ul class="footer-widget-list-icon">
-                            <li><i class="sli-location-pin"></i><?php __trans('Địa chỉ'); ?>: <?php echo setting('info_address') ?></li>
+                            <li><i class="sli-location-pin"></i><?php __trans('Địa chỉ'); ?>
+                                : <?php echo $info['address'] ?></li>
                             <li>
-                                <a href="mailto:<?php echo setting('info_email') ?>">
-                                    <i class="sli-envelope"></i>Email: <?php echo setting('info_email') ?>
+                                <a href="mailto:<?php echo $info['email'] ?>">
+                                    <i class="sli-envelope"></i>Email: <?php echo $info['email'] ?>
                                 </a>
                             </li>
                             <li class="d-flex">
                                 <i class="sli-phone"></i><?php __trans('Điện thoại'); ?>:
                                 <?php
-                                $phones = setting('info_hotline');
-                                $phones = explode(',', $phones);
+                                $phones = explode(',', $info['hotline']);
                                 if (!empty($phones)) {
                                     foreach ($phones as $phone) {
                                         ?>
