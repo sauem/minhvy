@@ -35,12 +35,14 @@ get_header(); ?>
                     ?>
                 </div>
             </div>
-
+            <?php
+            $about = setting('about');
+            ?>
             <div class="col mb-8">
                 <div class="section-title">
-                    <h2 class="sub-title line-left"><?php echo setting('about_title'); ?></h2>
+                    <h2 class="sub-title line-left"><?php echo $about['title']; ?></h2>
                     <div class="feature-content">
-                        <?php echo setting('about_content'); ?>
+                        <?php echo $about['content']; ?>
                     </div>
                 </div>
 
