@@ -1,17 +1,19 @@
+<?php
+$info = setting('info');
+?>
 <div class="top-menu bg-top d-none d-md-block">
     <div class="container d-flex justify-content-between">
         <div class="d-flex align-items-center">
             <ul class="list">
                 <li>
-                    <a class="d-flex align-items-center" href="mailto:<?php echo setting('info_email') ?>">
-                        <i class="sli-envelope me-1"></i> <?php echo setting('info_email') ?>
+                    <a class="d-flex align-items-center" href="mailto:<?php echo $info['email'] ?>">
+                        <i class="sli-envelope me-1"></i> <?php echo $info['email']; ?>
                     </a>
                 </li>
                 <li class="d-flex align-items-center">
                     <i class="sli-phone me-1"></i>
                     <?php
-                    $phones = setting('info_hotline');
-                    $phones = explode(',', $phones);
+                    $phones = explode(',', $info['hotline']);
                     if (!empty($phones)) {
                         foreach ($phones as $phone) {
                             ?>
