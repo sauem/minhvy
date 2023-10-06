@@ -7,7 +7,6 @@ define('ASSET', get_template_directory_uri() . '/assets');
  * Translations static string
  */
 
-
 add_action('init', function () {
     pll_register_string('address', 'Địa chỉ');
     pll_register_string('phone', 'Điện thoại');
@@ -22,6 +21,7 @@ add_action('init', function () {
     pll_register_string('search_results', 'Có %s kết quả phù hợp');
     pll_register_string('name_home', 'Trang chủ');
     pll_register_string('contact', 'Liên hệ');
+    pll_register_string('partner', 'Đối tác');
 });
 /**
  * config php
@@ -43,7 +43,9 @@ function get_logo()
 
 function setting($key = '')
 {
+    $lang = pll_current_language();
     $homeId = get_option('page_on_front');
+    $key = $lang === 'en' ? $key . '_' . $lang : $key;
     return get_field($key, $homeId);
 }
 

@@ -73,7 +73,7 @@ if (!empty($categories)) {
 <div class="h1-blog-section section section-padding pt-0">
     <div class="container">
         <div class="section-title section-title-center">
-            <h2 class="sub-title">Đối tác</h2>
+            <h2 class="sub-title"><?php pll_e('partner'); ?></h2>
         </div>
 
         <div class="logo-carousel swiper">

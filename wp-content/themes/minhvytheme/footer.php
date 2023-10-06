@@ -30,10 +30,22 @@ $footers = wp_get_menu_array('footer-menu');
                                     <i class="sli-envelope"></i>Email: <?php echo setting('info_email') ?>
                                 </a>
                             </li>
-                            <li>
-                                <a href="tel:<?php echo setting('info_hotline') ?>">
-                                    <i class="sli-phone"></i>Phone: <?php echo setting('info_hotline') ?>
-                                </a>
+                            <li class="d-flex">
+                                <i class="sli-phone"></i><?php pll_e('hotline'); ?>:
+                                <?php
+                                $phones = setting('info_hotline');
+                                $phones = explode(',', $phones);
+                                if (!empty($phones)) {
+                                    foreach ($phones as $phone) {
+                                        ?>
+                                        <a style="flex: unset" href="tel:<?php echo $phone ?>">
+                                            <?php echo $phone ?>
+                                        </a>
+                                        <?php
+                                    }
+                                }
+                                ?>
+
                             </li>
                         </ul>
                     </div>
@@ -63,7 +75,7 @@ $footers = wp_get_menu_array('footer-menu');
                 <!-- Footer Widget Start -->
                 <div class="col-lg-2 col-sm-6 col-12 mb-8">
                     <div class="footer-widget footer-widget-dark">
-                        <h5 class="footer-widget-title"><?php pll_e('contact')?></h5>
+                        <h5 class="footer-widget-title"><?php pll_e('contact') ?></h5>
                         <ul class="footer-widget-list-icon">
                             <?php
                             $socials = setting('social');

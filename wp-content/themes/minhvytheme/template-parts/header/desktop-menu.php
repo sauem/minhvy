@@ -7,10 +7,23 @@
                         <i class="sli-envelope me-1"></i> <?php echo setting('info_email') ?>
                     </a>
                 </li>
-                <li>
-                    <a class="d-flex align-items-center" href="tel:<?php echo setting('info_hotline') ?>">
-                        <i class="sli-phone me-1"></i> <?php echo setting('info_hotline') ?>
-                    </a>
+                <li class="d-flex align-items-center">
+                    <i class="sli-phone me-1"></i>
+                    <?php
+                    $phones = setting('info_hotline');
+                    $phones = explode(',', $phones);
+                    if (!empty($phones)) {
+                        foreach ($phones as $phone) {
+                            ?>
+
+                            <a class="d-flex align-items-center ms-2" href="tel:<?php echo $phone ?>">
+                                <?php echo $phone ?>
+                            </a>
+                            <?php
+                        }
+                    }
+                    ?>
+
                 </li>
             </ul>
         </div>
